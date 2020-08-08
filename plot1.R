@@ -1,0 +1,6 @@
+fulldata<-read.table("household_power_consumption.txt", sep =";", header = TRUE, dec =".")
+filtereddates<-fulldata %>% filter(Date=="1/2/2007" | Date=="2/2/2007")
+globalAP=as.numeric(filtereddates$Global_active_power)
+png(file="plot1.png",width=480, height=480)
+hist(globalAP,xlab="Global Active Power (kilowatts)",col="red")
+dev.off()
